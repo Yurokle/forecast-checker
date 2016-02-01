@@ -1,5 +1,6 @@
 {
-  "config": {
-    "wunderground_key": "*** SECRET KEY ***"
-  }
+  "wunderground_key": "*** SECRET KEY ***",
+  "db_name": "*** DB NAME ***",
+  "db_user": "*** DB USER ***",
+  "db_pass": "*** DB PASS ***"
 }

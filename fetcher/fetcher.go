@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"encoding/json"
 	"net/http"
+	"time"
 	"forecast-checker/conditions"
 	"forecast-checker/config"
 )
@@ -35,6 +36,8 @@ func FetchConditions(zip string) (*conditions.Conditions, error) {
 	var data conditions.Conditions
 	err = json.Unmarshal(*raw_json, &data)
 	data.Json = string(*raw_json)
+	data.Zip = zip
+	data.Created_at = time.Now()
 
 	return &data, err
 }

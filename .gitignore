@@ -1,3 +1,5 @@
 .idea
 worker/worker
 config.json
+test
+test.go

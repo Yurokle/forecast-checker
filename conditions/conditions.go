@@ -1,5 +1,7 @@
 package conditions
 
+import "time"
+
 type ObservationLocation struct {
 	Full string "full"
 	City string "city"
@@ -33,5 +35,7 @@ type CurrentObservation struct {
 
 type Conditions struct {
 	Current_observation CurrentObservation "current_observation"
-	Json string
+	Created_at time.Time "created_at"
+	Zip string "zip"
+	Json string "json"
 }

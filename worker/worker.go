@@ -3,17 +3,18 @@ package main
 import (
 	"fmt"
 	"forecast-checker/fetcher"
+	"forecast-checker/conditions_persistence"
 )
 
 func main() {
-	conditions, err := fetcher.FetchConditions("94103")
+	zips := []string{"94103", "94110"}
 
-	if err != nil {
-		fmt.Printf("Error: %v\n", err)
-	} else {
-		fmt.Println("JSON:")
-		fmt.Println(conditions.Current_observation)
-		fmt.Println("RAW JSON:")
-		fmt.Println(conditions.Json)
+	for _, zip := range(zips) {
+		conditions, err := fetcher.FetchConditions(zip)
+		if err != nil {
+			fmt.Printf("Error: %v\n", err)
+		} else {
+			conditions_persistence.StoreConditions(conditions)
+		}
 	}
 }
