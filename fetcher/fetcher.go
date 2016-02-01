@@ -6,12 +6,12 @@ import (
 	"encoding/json"
 	"net/http"
 	"forecast-checker/conditions"
+	"forecast-checker/config"
 )
 
 
-const key = "c33b9575f02fa950"
-
 func conditionsURL(zip string) string {
+	key := config.GetConfigKey("wunderground_key")
 	return fmt.Sprintf("http://api.wunderground.com/api/%s/conditions/q/%s.json", key, zip)
 }
 
